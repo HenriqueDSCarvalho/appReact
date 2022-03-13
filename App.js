@@ -1,43 +1,39 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, TextInput, Icon } from 'react-native';
+import { StyleSheet, View, Text, TextInput, TouchableOpacity } from 'react-native';
 
-
+import { FontAwesome, Entypo, AntDesign } from '@expo/vector-icons';
 
 export default function App() {
 
   return (
     <View style={styles.container}>
 
-      <View style={styles.areaTopo}>      
-      <Image 
-      style={styles.imgBarra}
-      source={require('./src/img/OIP.jpg')}
-      />
-      <TextInput
-        style={styles.input}
-        keyboardType= "name-phone-pad"
-      />
+      <View style={styles.areaTopo}>
 
+        <TouchableOpacity>      
+          <Entypo name="menu" size={40} color="black" />
+        </TouchableOpacity>  
+    
+       <TextInput      
+          clearTextOnFocus={false}
+          textAlign='left'
+          maxLength={25}
+          style={styles.input}
+        />
 
-      <Image
-      style={styles.imgPesquisa}
-      source={require('./src/img/R.png')}
-      />
+        <TouchableOpacity >
+         <FontAwesome name="search" size={40} color="black" />
+       </TouchableOpacity>
+    
       </View>
       <StatusBar style="auto" />   
 
-
-
       <View style={styles.viewPesquisa}>
-      <Image
-      style={styles.imgAdc}
-      source={require('./src/img/adicao.png')}
-      
-      />
+        <TouchableOpacity>
+          <AntDesign name="addfile" size={40} color="black" />
+          <Text>add</Text>
+        </TouchableOpacity>
       </View>  
-     
-
-
      
     </View>
   );
@@ -46,8 +42,8 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    
-   
+    backgroundColor: '#d3d3d3'
+       
   },
   areaTopo:{
     paddingHorizontal: 20,
@@ -59,16 +55,21 @@ const styles = StyleSheet.create({
   imgBarra:{
     width: 40,
     height: 40,
-    padding: 20,
-    
-    
+    padding: 20, 
 
   },
   input: {
     height: 30,
     margin: 5,
     borderWidth: 1,
-    paddingHorizontal: 70
+    paddingHorizontal: 70,
+    borderRadius: 5,
+    backgroundColor: '#bebebe',
+    borderColor: '#000',
+    marginTop: 6,
+    fontFamily: 'Arial'
+    
+    
   },
   imgPesquisa:{
     width: 40,
@@ -87,8 +88,7 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     
-    
   }
-  
+
  
 });
